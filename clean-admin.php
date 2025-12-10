@@ -17,18 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function caa_load_textdomain() {
-	load_plugin_textdomain( 'clean-admin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'caa_load_textdomain' );
-
 function caa_admin_notice_activation() {
 	if ( get_transient( 'caa_activation_notice' ) ) {
-		$url     = esc_url( admin_url( 'options-general.php?page=caa-settings' ) );
+		$url = esc_url( admin_url( 'options-general.php?page=caa-settings' ) );
+
 		$message = sprintf(
+			/* translators: %s: URL to the Clean Admin settings page. */
 			__( '🎉 Clean Admin is now active! Go to <a href="%s">Settings → Clean Admin</a> to configure what to hide.', 'clean-admin' ),
 			$url
 		);
+
 		echo wp_kses(
 			'<div class="notice notice-info is-dismissible"><p>' . $message . '</p></div>',
 			array(
@@ -287,11 +285,11 @@ add_action(
 			'caa-admin-clean',
 			'CAA_OPTIONS',
 			array(
-				'hide_dashboard_ads'   => (int) $opts['hide_dashboard_ads'],
-				'hide_review_nags'     => (int) $opts['hide_review_nags'],
-				'hide_plugin_promos'   => (int) $opts['hide_plugin_promos'],
-				'promoWords'           => array_values( $promo_words ),
-				'reviewWords'          => array_values( $review_words ),
+				'hide_dashboard_ads' => (int) $opts['hide_dashboard_ads'],
+				'hide_review_nags'   => (int) $opts['hide_review_nags'],
+				'hide_plugin_promos' => (int) $opts['hide_plugin_promos'],
+				'promoWords'         => array_values( $promo_words ),
+				'reviewWords'        => array_values( $review_words ),
 			)
 		);
 
