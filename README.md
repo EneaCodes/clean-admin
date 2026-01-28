@@ -50,4 +50,4 @@ Power users can also define their own custom promo/review keywords to hide, and 
 
 ```bash
 cd wp-content/plugins
-git clone https://github.com/EneaCodes/clean-admin.git
+git clone https://github.com/EneaCodes/Bros-Clean-Admin.git
